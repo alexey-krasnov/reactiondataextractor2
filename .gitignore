@@ -1,0 +1,13 @@
+**/__pycache__
+.DS_Store
+*.png
+*.tif
+*.TIF
+*.tiff
+*.pth
+*.ckpt
+*.xlsx
+*.csv
+build
+*.pth
+*pt

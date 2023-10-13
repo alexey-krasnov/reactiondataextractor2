@@ -28,7 +28,7 @@ import cv2
 from PIL import Image, ImageEnhance
 import tesserocr
 
-from configs.config import OCRConfig
+from reactiondataextractor.configs.config import OCRConfig
 from reactiondataextractor.models.segments import Rect
 
 log = logging.getLogger('extract.ocr')
@@ -466,7 +466,7 @@ class TextElement:
         return '<%s: %r>' % (self.__class__.__name__, self.text)
 
 
-class TextBlock(TextElement, collections.MutableSequence):
+class TextBlock(TextElement, collections.abc.MutableSequence):
     """Text block."""
 
     def __init__(self, text, left, right, top, bottom, orientation, writing_direction, textline_order, deskew_angle,
@@ -504,7 +504,7 @@ class TextBlock(TextElement, collections.MutableSequence):
         self.paragraphs.insert(index, value)
 
 
-class TextParagraph(TextElement, collections.MutableSequence):
+class TextParagraph(TextElement, collections.abc.MutableSequence):
     """Text paragraph.
 
     :param string text: Recognized text content.
@@ -551,7 +551,7 @@ class TextParagraph(TextElement, collections.MutableSequence):
         self.lines.insert(index, value)
 
 
-class TextLine(TextElement, collections.MutableSequence):
+class TextLine(TextElement, collections.abc.MutableSequence):
     """Text line."""
 
     def __init__(self, text, left, right, top, bottom, orientation, writing_direction, textline_order, deskew_angle,
@@ -589,7 +589,7 @@ class TextLine(TextElement, collections.MutableSequence):
         self.words.insert(index, value)
 
 
-class TextWord(TextElement, collections.MutableSequence):
+class TextWord(TextElement, collections.abc.MutableSequence):
     """Text word."""
 
     def __init__(self, text, left, right, top, bottom, orientation, writing_direction, textline_order, deskew_angle,

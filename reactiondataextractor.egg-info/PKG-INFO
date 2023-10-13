@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: reactiondataextractor
+Version: 2.0.0
+Summary: A toolkit for converting chemical reaction schemes into a machine-readable format.
+Home-page: https://github.com/dmw51/reactiondataextractor2
+Author: Damian Wilary
+Author-email: dmw51@cam.ac.uk
+License: MIT
+Keywords: image-mining mining chemistry cheminformatics OCR reaction scheme structure diagram html computer vision science scientific
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Internet :: WWW/HTTP :: Indexing/Search
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: Topic :: Scientific/Engineering :: Chemistry
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: scikit-learn
+Requires-Dist: cirpy
+Requires-Dist: opencv-contrib-python
+Requires-Dist: pypotrace==0.3
+Requires-Dist: matplotlib

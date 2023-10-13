@@ -19,12 +19,12 @@ from detectron2.structures import Instances, Boxes
 import torch
 from torch import Tensor
 
-from models.exceptions import NoDiagramsFoundException
+from reactiondataextractor.models.exceptions import NoDiagramsFoundException
 from reactiondataextractor.models import BaseExtractor, Candidate
 from reactiondataextractor.models.reaction import Label, Conditions, Diagram, CurlyArrow
 from reactiondataextractor.models.segments import Panel, Rect, FigureRoleEnum, Crop, PanelMethodsMixin, Figure
 from reactiondataextractor.extractors import ConditionsExtractor, LabelExtractor
-from configs.config import ExtractorConfig
+from reactiondataextractor.configs.config import ExtractorConfig
 from reactiondataextractor.utils.utils import dilate_fig, erase_elements, find_relative_directional_position, \
     compute_ioa, lies_along_arrow_normal, pixel_ratio
 
@@ -491,12 +491,17 @@ class UnifiedExtractor(BaseExtractor):
     def to_json(self):
         out_lst = []
         diags = self._extracted[0]
+        print(diags)
         for diag in diags:
             diag_dct = {'smiles': diag.smiles, 'panel': str(diag.panel.in_original_fig()),
                         'labels': [label.text for label in diag.labels]}
-            repeating_units = [{'identifier':fragment.label.text, 'smiles':fragment.smiles} for fragment in diag.repeating_units]
+            print(diag_dct)
+            print(type(diag), diag)
+            print(diag.smiles)
+            repeating_units = [{'identifier': fragment.label.text, 'smiles': fragment.smiles} for fragment in diag.repeating_units]
             if repeating_units:
                 diag_dct['repeating_units'] = repeating_units
+
             out_lst.append(diag_dct)
         return json.dumps(out_lst, indent=4)
 

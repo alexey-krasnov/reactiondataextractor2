@@ -19,7 +19,7 @@ from matplotlib.patches import Rectangle
 from scipy.ndimage import label
 # from tensorflow.keras.models import load_model
 from torch import load, device, nn
-from configs import ExtractorConfig, Config
+from reactiondataextractor.configs import ExtractorConfig, Config
 from reactiondataextractor.models.base import BaseExtractor
 from reactiondataextractor.models.exceptions import NoArrowsFoundException
 from reactiondataextractor.models.segments import FigureRoleEnum, Panel, Figure, Crop

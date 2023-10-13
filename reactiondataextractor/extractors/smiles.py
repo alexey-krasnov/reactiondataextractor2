@@ -2,8 +2,8 @@
 individual chemical compounds"""
 from typing import List
 
-from utils.utils import erase_elements, euclidean_distance
-from utils.vectorised import DiagramVectoriser
+from reactiondataextractor.utils.utils import erase_elements, euclidean_distance
+from reactiondataextractor.utils.vectorised import DiagramVectoriser
 
 from reactiondataextractor.models import BaseExtractor
 

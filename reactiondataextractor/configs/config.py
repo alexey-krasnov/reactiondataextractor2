@@ -9,7 +9,8 @@ class Config:
     ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
     IMG_PATH = None
     HOME = os.path.expanduser('~')
-    TESSDATA_PATH = f'{THIS_DIR}/../../tessdata'
+    # replace the TESSDATA_PATH value inside to point to the cloned tessdata directory from git clone https://github.com/tesseract-ocr/tessdata.
+    TESSDATA_PATH = '/Users/alekseikrasov/Desktop/OntoChem/work/images_recognition/ReactionDataExtractor_tool/tessdata'
     SINGLE_BOND_LENGTH = 1.54
 
 

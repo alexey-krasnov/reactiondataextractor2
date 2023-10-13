@@ -10,7 +10,7 @@ import cv2
 from PIL import Image
 from scipy.stats import mode
 
-from configs.figure import GlobalFigureMixin
+from reactiondataextractor.configs.figure import GlobalFigureMixin
 from reactiondataextractor.models.segments import Figure
 from reactiondataextractor.configs import config
 

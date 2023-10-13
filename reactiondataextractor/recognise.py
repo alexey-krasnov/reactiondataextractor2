@@ -24,9 +24,9 @@ import efficientnet.tfkeras as efn
 from DECIMER.config import get_bnw_image, delete_empty_borders, central_square_image, PIL_im_to_BytesIO, get_resize, increase_contrast
 from DECIMER.decimer import tokenizer, DECIMER_V2
 
-from models.reaction import Diagram
+from reactiondataextractor.models.reaction import Diagram
 from reactiondataextractor.models.segments import FigureRoleEnum, Figure
-from utils.utils import isolate_patches
+from reactiondataextractor.utils.utils import isolate_patches
 
 log = logging.getLogger()
 
@@ -63,12 +63,12 @@ class DecimerRecogniser:
         :type predicted_array: Tensor
         :return: smiles representation of a diagram
         :rtype: str"""
-        outputs = [tokenizer.index_word[i] for i in tf.squeeze(predicted_array).numpy()]
+        outputs = [tokenizer.index_word[i] for i in tf.squeeze(predicted_array[0]).numpy()]
         prediction = (
             "".join([str(elem) for elem in outputs])
             .replace("<start>", "")
             .replace("<end>", "")
         )
-
+        print(f'Prediction: {prediction}\n')
         return prediction
     

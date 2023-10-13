@@ -19,8 +19,8 @@ import argparse
 import logging
 import os
 
-from extractors.scheme_extractor import SchemeExtractor
-from configs.config import Config
+from reactiondataextractor.extractors.scheme_extractor import SchemeExtractor
+from reactiondataextractor.configs.config import Config
 
 MAIN_DIR = os.getcwd()
 

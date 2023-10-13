@@ -24,7 +24,7 @@ from enum import Enum
 
 import cv2
 
-from configs import ExtractorConfig
+from reactiondataextractor.configs import ExtractorConfig
 from .base import TextRegion
 from .segments import Panel, PanelMethodsMixin, Figure
 
@@ -175,7 +175,8 @@ class ReactionStep(BaseReactionClass):
     def __str__(self):
         reactant_strings = [elem.smiles if elem.smiles else '???' for elem in self.reactants]
         product_strings = [elem.smiles if elem.smiles else '???' for elem in self.products]
-        return ' + '.join(reactant_strings)+'  -->  ' + ' + '.join(product_strings)
+        # Change RSMI format to reactants>>products
+        return '..'.join(reactant_strings)+ '>>' + '..'.join(product_strings)
 
     def __hash__(self):
         all_species = [species for group in iter(self) for species in group]

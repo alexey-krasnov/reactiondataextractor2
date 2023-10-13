@@ -18,7 +18,7 @@ email: m.swain@me.com
 from __future__ import absolute_import
 from __future__ import division
 
-from collections import Sequence
+from collections.abc import Sequence
 from collections.abc import Collection
 import numpy as np
 from enum import Enum
@@ -30,7 +30,7 @@ import cv2
 import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
 
-from configs import figure, ProcessorConfig
+from reactiondataextractor.configs import figure, ProcessorConfig
 from .geometry import Line, Point
 
 log = logging.getLogger('extract.segments')

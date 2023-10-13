@@ -1,0 +1,6 @@
+numpy
+scikit-learn
+cirpy
+opencv-contrib-python
+pypotrace==0.3
+matplotlib

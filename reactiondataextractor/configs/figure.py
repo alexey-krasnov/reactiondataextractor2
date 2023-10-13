@@ -3,7 +3,7 @@ class GlobalFigureMixin:
     (set at the beginning of extraction)"""
     def __init__(self, fig):
         if fig is None:
-            import configs.config
-            self.fig = configs.config.Config.FIGURE
+            import reactiondataextractor.configs.config
+            self.fig = reactiondataextractor.configs.config.Config.FIGURE
         else:
             self.fig = fig

@@ -21,7 +21,7 @@ from typing import List, Dict
 
 from matplotlib.patches import Rectangle
 
-from configs.config import ExtractorConfig
+from reactiondataextractor.configs.config import ExtractorConfig
 from reactiondataextractor.models.reaction import Conditions
 from reactiondataextractor.models.base import BaseExtractor
 from reactiondataextractor.ocr import img_to_text, CONDITIONS_WHITELIST

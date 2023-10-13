@@ -18,10 +18,9 @@ import cv2
 from scipy import ndimage as ndi
 from scipy.stats import mode
 
-from configs import config
+from reactiondataextractor.configs import config
 from reactiondataextractor.models.geometry import Line, Point, OpencvToSkimageHoughLineAdapter
 from reactiondataextractor.models.segments import Rect, Panel, Figure, FigureRoleEnum
-
 
 class DisabledNegativeIndices:
     """If a negative index is passed to an underlying sequence, then an empty element of appropriate type is returned.

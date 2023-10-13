@@ -13,18 +13,18 @@ from pathlib import Path
 
 import matplotlib.pyplot as plt
 
-from utils.vectorised import estimate_single_bond
-from configs.config import Config
-from extractors.arrows import ArrowExtractor
-from extractors.unified import UnifiedExtractor
+from reactiondataextractor.utils.vectorised import estimate_single_bond
+from reactiondataextractor.configs.config import Config
+from reactiondataextractor.extractors.arrows import ArrowExtractor
+from reactiondataextractor.extractors.unified import UnifiedExtractor
 
-from extractors.smiles import SmilesExtractor
+from reactiondataextractor.extractors.smiles import SmilesExtractor
 
-from models.base import BaseExtractor
+from reactiondataextractor.models.base import BaseExtractor
 from reactiondataextractor.models.exceptions import NoArrowsFoundException, NoDiagramsFoundException
-from models.output import ReactionScheme, RoleProbe
-from processors import ImageReader, ImageScaler, ImageNormaliser, Binariser
-from recognise import DecimerRecogniser
+from reactiondataextractor.models.output import ReactionScheme, RoleProbe
+from reactiondataextractor.processors import ImageReader, ImageScaler, ImageNormaliser, Binariser
+from reactiondataextractor.recognise import DecimerRecogniser
 
 
 class SchemeExtractor(BaseExtractor):
@@ -74,6 +74,8 @@ class SchemeExtractor(BaseExtractor):
         self.arrow_extractor.plot_extracted(ax)
         self.unified_extractor.plot_extracted(ax)
         plt.show()
+        # plt.savefig(f'{self.path.stem}_out.png')
+        # plt.close()
 
     def extract_from_image(self, path):
         """Main extraction method used for extracting data from a single image. Returns the parsed Scheme object.
@@ -118,20 +120,24 @@ class SchemeExtractor(BaseExtractor):
         smiles_extractor = SmilesExtractor(diags, self.recogniser)
         smiles_extractor.extract()
         if not diags_only:
+            print('No diags_only')
             p = RoleProbe(fig, self.arrow_extractor.arrows, diags)
             p.probe()
 
             output = ReactionScheme(fig, p.reaction_steps, p.is_incomplete)
         else:
-            output = self.unified_extractor
+            print('diags_only')
+            output = self.unified_extractor #FIXME this causes AttribureError 'Diagram' object has no attribute 'repeating_units'
         if self.opts.output_dir:
             self.save_output_to_disk(output, path)
+        print(f'RSMI:{output}')
         return output
 
     def extract_from_dir(self):
         """Main extraction method used for extracting data from a single image"""
         schemes = []
-        for image_path in self.path.iterdir():
+        images = [image for image in self.path.glob('[!.]*') if image.is_file()]
+        for image_path in images:
             try:
                 scheme = self.extract_from_image(image_path)
                 print(f'Extraction finished: {image_path}')
@@ -139,6 +145,7 @@ class SchemeExtractor(BaseExtractor):
             except Exception as e:
                 print(f'Extraction failed for {image_path}: {str(e)}')
                 schemes.append(None)
+        print(f'schemes:{schemes}')
         return schemes
 
     def save_output_to_disk(self, output, image_path):

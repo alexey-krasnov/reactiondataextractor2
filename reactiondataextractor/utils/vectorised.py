@@ -4,8 +4,8 @@ from typing import List
 import cv2
 import potrace
 
-from configs import config
-from utils.utils import erase_elements, euclidean_distance, isolate_patches, HoughLinesP
+from reactiondataextractor.configs import config
+from reactiondataextractor.utils.utils import erase_elements, euclidean_distance, isolate_patches, HoughLinesP
 from reactiondataextractor.configs import Config, ExtractorConfig
 
 

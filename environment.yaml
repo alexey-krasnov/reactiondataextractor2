@@ -1,4 +1,4 @@
-name: rde2
+name: rde_3.8
 channels:
   - main
   - pytorch
