@@ -1,4 +1,4 @@
-name: rde_3.8
+name: rde_3.11
 channels:
   - main
   - pytorch
@@ -7,6 +7,6 @@ channels:
   - conda-forge
 dependencies:
   - tesseract=4.1.1
-  - pytorch-cpu=1.10
-  - torchvision=0.11
-  - python=3.8
+ # - pytorch-cpu=1.10
+ # - torchvision=0.16
+  - python=3.11

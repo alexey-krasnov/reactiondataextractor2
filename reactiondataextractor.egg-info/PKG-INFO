@@ -18,9 +18,12 @@ Classifier: Topic :: Scientific/Engineering
 Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
 Classifier: Topic :: Scientific/Engineering :: Chemistry
 License-File: LICENSE
+Requires-Dist: tesserocr==2.6.0
+Requires-Dist: scipy==1.9
 Requires-Dist: numpy
 Requires-Dist: scikit-learn
 Requires-Dist: cirpy
 Requires-Dist: opencv-contrib-python
 Requires-Dist: pypotrace==0.3
+Requires-Dist: protobuf==3.20.*
 Requires-Dist: matplotlib

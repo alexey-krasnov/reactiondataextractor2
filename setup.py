@@ -24,14 +24,14 @@ setup(
     install_requires=[
     #    'detectron2 @ git+https://github.com/facebookresearch/detectron2',
     #    'decimer @ git+https://github.com/dmw51/DECIMER-Image_Transformer.git',
-    #    'tesserocr==2.5.1',
+       'tesserocr==2.6.0',
     #    'scipy==1.9',
         'numpy',
         'scikit-learn',
         'cirpy',
         'opencv-contrib-python',
         'pypotrace==0.3',
-    #    'protobuf==3.20.*',
+        # 'protobuf==3.20.*',
         'matplotlib'
         
     ],

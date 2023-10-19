@@ -1,6 +1,9 @@
+tesserocr==2.6.0
+scipy==1.9
 numpy
 scikit-learn
 cirpy
 opencv-contrib-python
 pypotrace==0.3
+protobuf==3.20.*
 matplotlib

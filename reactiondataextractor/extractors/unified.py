@@ -498,10 +498,6 @@ class UnifiedExtractor(BaseExtractor):
             print(diag_dct)
             print(type(diag), diag)
             print(diag.smiles)
-            repeating_units = [{'identifier': fragment.label.text, 'smiles': fragment.smiles} for fragment in diag.repeating_units]
-            if repeating_units:
-                diag_dct['repeating_units'] = repeating_units
-
             out_lst.append(diag_dct)
         return json.dumps(out_lst, indent=4)
 
