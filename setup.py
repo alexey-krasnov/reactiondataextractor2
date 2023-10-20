@@ -24,7 +24,7 @@ setup(
     install_requires=[
     #    'detectron2 @ git+https://github.com/facebookresearch/detectron2',
     #    'decimer @ git+https://github.com/dmw51/DECIMER-Image_Transformer.git',
-       'tesserocr==2.6.0',
+     #  'tesserocr==2.6.0',
     #    'scipy==1.9',
         'numpy',
         'scikit-learn',
