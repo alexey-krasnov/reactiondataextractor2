@@ -170,13 +170,13 @@ class ReactionStep(BaseReactionClass):
         return False
 
     def __repr__(self):
-        return f'ReactionStep(reactants=({self.reactants}),products=({self.products}),{self.conditions})'
+        return f'ReactionStep(reactants=({self.reactants}),products=({self.products}),{self.conditions}),rsmi=({self.rsmi})'
 
     def __str__(self):
         reactant_strings = [elem.smiles if elem.smiles else '???' for elem in self.reactants]
         product_strings = [elem.smiles if elem.smiles else '???' for elem in self.products]
         # Change RSMI format to reactants>>products
-        return '..'.join(reactant_strings)+ '>>' + '..'.join(product_strings)
+        return '..'.join(reactant_strings) + '>>' + '..'.join(product_strings)
 
     def __hash__(self):
         all_species = [species for group in iter(self) for species in group]
@@ -189,6 +189,14 @@ class ReactionStep(BaseReactionClass):
     @property
     def nodes(self):
         return [self.reactants, self.conditions, self.products]
+
+    @property
+    def rsmi(self):
+        reactant_strings = [elem.smiles if elem.smiles else '???' for elem in self.reactants]
+        product_strings = [elem.smiles if elem.smiles else '???' for elem in self.products]
+        # Change RSMI format to reactants>>products
+        return '..'.join(reactant_strings) + '>>' + '..'.join(product_strings)
+
 
     # def visualize(self, fig):
     #     _X_SEPARATION = 50

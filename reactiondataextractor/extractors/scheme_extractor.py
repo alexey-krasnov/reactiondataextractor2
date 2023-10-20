@@ -145,7 +145,7 @@ class SchemeExtractor(BaseExtractor):
             except Exception as e:
                 print(f'Extraction failed for {image_path}: {str(e)}')
                 schemes.append(None)
-        print(f'schemes:{schemes}')
+        # print(f'schemes:{schemes}')
         return schemes
 
     def save_output_to_disk(self, output, image_path):

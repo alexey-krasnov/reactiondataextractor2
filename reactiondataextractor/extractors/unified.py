@@ -491,13 +491,22 @@ class UnifiedExtractor(BaseExtractor):
     def to_json(self):
         out_lst = []
         diags = self._extracted[0]
-        print(diags)
+        # print(f'Diags {diags}')
+        # print(len(diags))
+        # rsmi = ''
+        # TODO: here is code from which it's possible to extract smiles for RSMI
         for diag in diags:
             diag_dct = {'smiles': diag.smiles, 'panel': str(diag.panel.in_original_fig()),
                         'labels': [label.text for label in diag.labels]}
-            print(diag_dct)
-            print(type(diag), diag)
-            print(diag.smiles)
+            # Extract SMILES from labels if available
+            # rsmi = rsmi + diag_dct['smiles']
+            # print(rsmi)
+            #
+            #
+            # print(f'Diag_dict: {diag_dct}')
+            # print(type(diag), diag)
+            # print(f'diag.smiles: {diag.smiles}')
+            # print('=================')
             out_lst.append(diag_dct)
         return json.dumps(out_lst, indent=4)
 
@@ -1022,3 +1031,5 @@ class Rde2Predictor(DefaultPredictor):
                 batched_inputs.append(inputs)
             predictions = self.model(batched_inputs)
             return predictions
+
+#%%
