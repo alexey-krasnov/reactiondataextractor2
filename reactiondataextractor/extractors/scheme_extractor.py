@@ -123,7 +123,7 @@ class SchemeExtractor(BaseExtractor):
             print('No diags_only')
             p = RoleProbe(fig, self.arrow_extractor.arrows, diags)
             p.probe()
-
+            # FIXME : for some images p.reaction_steps is empty list, therefore we get output as None
             output = ReactionScheme(fig, p.reaction_steps, p.is_incomplete)
         else:
             print('diags_only')
@@ -136,7 +136,7 @@ class SchemeExtractor(BaseExtractor):
     def extract_from_dir(self):
         """Main extraction method used for extracting data from a single image"""
         schemes = []
-        images = [image for image in self.path.glob('[!.]*') if image.is_file()]
+        images = sorted(image for image in self.path.glob('[!.]*') if image.is_file())
         for image_path in images:
             try:
                 scheme = self.extract_from_image(image_path)

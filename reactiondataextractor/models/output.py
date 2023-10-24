@@ -155,11 +155,11 @@ class ReactionScheme(Graph):
 
     @property
     def reactants(self):
-        return self._start
+        return self._start # FIXME there is now _start attribute
 
     @property
     def products(self):
-        return self._end
+        return self._end # FIXME there is now _end attribute
 
     def long_str(self):
         """Longer str method - contains more information (eg conditions)"""
@@ -237,7 +237,7 @@ class RoleProbe:
         self.arrows = arrows
         probed_diags = self.remove_reaction_conditions_diags(diagrams)
         self.diagrams = probed_diags
-
+        # FIXME: ValueError: min() arg is an empty sequence
         self.stepsize = min([x for diag in self.diagrams for x in (diag.panel.width, diag.panel.height)]) * 0.2 #Step size should be related to width/height of the smallest diagram, whichever is smaller
         # Could also be a function depending on arrow direction, but might not be necessary
         self.segment_length = np.mean([(d.panel.width + d.panel.height) / 2 for d in self.diagrams]) // 2
@@ -284,7 +284,7 @@ class RoleProbe:
 
         if isinstance(arrow, CurlyArrow):
             single_line = False
-            biggest_diag = max(self.diagrams, key=lambda diag: diag.panel.area)
+            biggest_diag = max(self.diagrams, key=lambda diag: diag.panel.area) # FIXME: ValueError: max() arg is an empty sequence
             scan_region_dims = biggest_diag.panel.width * 1.25, biggest_diag.panel.height * 1.25
             try:
                 scan_params = self._compute_scan_direction_curly_arrow(arrow)

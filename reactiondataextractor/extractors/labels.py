@@ -87,6 +87,7 @@ class LabelExtractor(BaseExtractor):
         # assert digits_only_right
         digits_only_left = all(char in string.digits for char in parts[0])
         if digits_only_left and digits_only_right:
+            # FIXME: for some images this causes ValueError: invalid literal for int() with base 2
             return ['', list(map(str, range(int(parts[0], int(parts[1])+1))))]
 
         assert all(char in string.ascii_letters for char in parts[1])

@@ -175,7 +175,7 @@ class ReactionStep(BaseReactionClass):
     def __str__(self):
         reactant_strings = [elem.smiles if elem.smiles else '???' for elem in self.reactants]
         product_strings = [elem.smiles if elem.smiles else '???' for elem in self.products]
-        # Change RSMI format to reactants>>products
+        # Changed RSMI format to reactants>>products
         return '..'.join(reactant_strings) + '>>' + '..'.join(product_strings)
 
     def __hash__(self):
@@ -194,8 +194,17 @@ class ReactionStep(BaseReactionClass):
     def rsmi(self):
         reactant_strings = [elem.smiles if elem.smiles else '???' for elem in self.reactants]
         product_strings = [elem.smiles if elem.smiles else '???' for elem in self.products]
-        # Change RSMI format to reactants>>products
+        # Changed RSMI format to reactants>>products
         return '..'.join(reactant_strings) + '>>' + '..'.join(product_strings)
+
+    # @property
+    # def reactants(self):
+    #     return '..'.join(elem.smiles if elem.smiles else '???' for elem in self.reactants)
+    #
+    # @property
+    # def products(self):
+    #     return '..'.join(elem.smiles if elem.smiles else '???' for elem in self.products)
+
 
 
     # def visualize(self, fig):
