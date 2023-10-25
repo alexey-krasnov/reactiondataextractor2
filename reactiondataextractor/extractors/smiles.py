@@ -2,7 +2,7 @@
 individual chemical compounds"""
 from typing import List
 
-from reactiondataextractor.utils.utils import erase_elements, euclidean_distance
+# from reactiondataextractor.utils.utils import erase_elements, euclidean_distance
 from reactiondataextractor.utils.vectorised import DiagramVectoriser
 
 from reactiondataextractor.models import BaseExtractor
@@ -40,5 +40,6 @@ class SmilesExtractor(BaseExtractor):
 
         chemical_structure = self.recogniser.decode_image(crop.img_detectron)
         predicted_tokens = self.recogniser.model(chemical_structure)
+        # Implement Decimer decoder
         predicted_SMILES = self.recogniser.detokenize_output(predicted_tokens)
         diag.smiles = predicted_SMILES

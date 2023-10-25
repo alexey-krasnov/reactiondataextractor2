@@ -6,17 +6,17 @@ This module contains arrow extraction classes
 author: Damian Wilary
 email: dmw51@cam.ac.uk
 """
-import abc
-import copy
+# import abc
+# import copy
 import logging
-from itertools import product
+# from itertools import product
 from typing import List, Tuple, Union
 
 import cv2
 import numpy as np
 import torch
 from matplotlib.patches import Rectangle
-from scipy.ndimage import label
+# from scipy.ndimage import label
 # from tensorflow.keras.models import load_model
 from torch import load, device, nn
 from reactiondataextractor.configs import ExtractorConfig, Config

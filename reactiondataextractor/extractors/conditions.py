@@ -15,7 +15,7 @@ from __future__ import division
 from __future__ import unicode_literals
 
 import logging
-import numpy as np
+# import numpy as np
 import re
 from typing import List, Dict
 

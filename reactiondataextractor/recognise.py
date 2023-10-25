@@ -10,23 +10,24 @@ email: dmw51@cam.ac.uk
 
 Recognition is achieved using OSRA and performed via a pyOsra wrapper.
 """
-import os
-import itertools
+# import os
+# import itertools
 import logging
-from PIL import Image
-
-import cv2
-import matplotlib.pyplot as plt
+# from PIL import Image
+#
+# import cv2
+# import matplotlib.pyplot as plt
 import numpy as np
 import tensorflow as tf
 import efficientnet.tfkeras as efn
 
 from DECIMER.config import get_bnw_image, delete_empty_borders, central_square_image, PIL_im_to_BytesIO, get_resize, increase_contrast
 from DECIMER.decimer import tokenizer, DECIMER_V2
+import DECIMER.utils as utils
 
-from reactiondataextractor.models.reaction import Diagram
-from reactiondataextractor.models.segments import FigureRoleEnum, Figure
-from reactiondataextractor.utils.utils import isolate_patches
+# from reactiondataextractor.models.reaction import Diagram
+# from reactiondataextractor.models.segments import FigureRoleEnum, Figure
+# from reactiondataextractor.utils.utils import isolate_patches
 
 log = logging.getLogger()
 
@@ -69,6 +70,7 @@ class DecimerRecogniser:
             .replace("<start>", "")
             .replace("<end>", "")
         )
+        # Implemented DECIMERR decoder
+        prediction = utils.decoder(prediction)
         print(f'Prediction: {prediction}\n')
         return prediction
-    
